@@ -10,7 +10,7 @@ public class HeaderContent {
 
   public HttpHeaders defaultHeaders() {
     HttpHeaders headers = new HttpHeaders();
-    headers.add("Location", "http://ejemplos-ejemplo12.193b.starter-ca-central-1.openshiftapps.com");
+    headers.add("Location", "http://ejemplos-ejemplo12.193b.starter-ca-central-1.openshiftapps.com:8080");
     headers.add("Content-Type", "application/json");
     return headers;
   }
@@ -26,7 +26,7 @@ public class HeaderContent {
   public HttpHeaders messagesResponseHeaders(String messages) {
     HttpHeaders headers = new HttpHeaders();
     headers.add("Access-Control-Expose-Headers", "Message");
-    headers.add("Location", "http://ejemplos-ejemplo12.193b.starter-ca-central-1.openshiftapps.com");
+    headers.add("Location", "http://ejemplos-ejemplo12.193b.starter-ca-central-1.openshiftapps.com:8080");
     headers.add("Message", messages);
     return headers;
   }
