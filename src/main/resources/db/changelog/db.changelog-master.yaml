@@ -1,0 +1,7 @@
+databaseChangeLog: 
+    - include :
+       file: classpath:/db/changelog/versions/2017-18-06_esquema_bd_prueba6.yaml
+      relativeToChangelogFile: false
+    - include :
+        file: classpath:/db/changelog/versions/2017-18-06_esquema_bd_prueba7.yaml
+        relativeToChangelogFile: false

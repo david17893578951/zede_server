@@ -1,0 +1,1084 @@
+databaseChangeLog:
+- changeSet:
+    id: 1480974858892-1
+    author: Fabian (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: cat_codigo
+            type: VARCHAR(4)
+        - column:
+            name: cat_nombre
+            type: VARCHAR(20)
+        - column:
+            name: cat_descripcion
+            type: TEXT
+        tableName: zed_catalogo
+- changeSet:
+    id: 1480974858892-2
+    author: Fabian (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: fac_nro
+            type: VARCHAR(20)
+        - column:
+            constraints:
+              nullable: false
+            name: pro_codigo
+            type: VARCHAR(20)
+        - column:
+            name: fpr_nro_item
+            type: INT
+        - column:
+            name: fpr_partida_arancelaria
+            type: VARCHAR(10)
+        - column:
+            name: fpr_cod_complementario
+            type: VARCHAR(4)
+        - column:
+            name: fpr_cod_suplementario
+            type: VARCHAR(4)
+        - column:
+            name: fpr_pais_origen
+            type: VARCHAR(4)
+        - column:
+            name: fpr_tipo_unidad_fisica
+            type: VARCHAR(4)
+        - column:
+            name: fpr_cantidad_unidad_fisica
+            type: numeric
+        - column:
+            name: fpr_tipo_unidad_comercial
+            type: VARCHAR(4)
+        - column:
+            name: fpr_cantidad_unidad_comercial
+            type: numeric
+        - column:
+            name: fpr_peso_neto
+            type: numeric
+        - column:
+            name: fpr_bien_capital
+            type: BOOLEAN
+        - column:
+            name: fpr_estado
+            type: VARCHAR(4)
+        - column:
+            name: fpr_valor_unitario
+            type: numeric
+        - column:
+            name: fpr_valor_total
+            type: numeric
+        tableName: zed_factura_producto_det
+- changeSet:
+    id: 1480974858892-3
+    author: Fabian (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: ite_codigo
+            type: VARCHAR(4)
+        - column:
+            name: cat_codigo
+            type: VARCHAR(4)
+        - column:
+            name: ite_nombre
+            type: VARCHAR(100)
+        - column:
+            name: ite_clasificacion
+            type: VARCHAR(20)
+        - column:
+            name: ite_padre
+            type: VARCHAR(4)
+        tableName: zed_item
+- changeSet:
+    id: 1480974858892-4
+    author: Fabian (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: kga_codigo
+            type: BIGINT
+        - column:
+            name: kin_codigo
+            type: BIGINT
+        - column:
+            name: kga_codigo_producto_terminado
+            type: VARCHAR(20)
+        - column:
+            name: kga_codigo_producto_insumo
+            type: VARCHAR(20)
+        - column:
+            name: kga_unidad_fisica
+            type: VARCHAR(4)
+        - column:
+            name: kga_cantidad
+            type: numeric
+        - column:
+            name: kga_coeficiente
+            type: numeric
+        - column:
+            name: kga_valor
+            type: numeric
+        tableName: zed_kardex_garantias
+- changeSet:
+    id: 1480974858892-5
+    author: Fabian (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: kin_codigo
+            type: BIGINT
+        - column:
+            name: kin_fecha_hora
+            type: TIMESTAMP(6) WITHOUT TIME ZONE
+        - column:
+            name: kin_fecha
+            type: date
+        - column:
+            name: kin_tipo_documento
+            type: VARCHAR(5)
+        - column:
+            name: kin_codigo_documento
+            type: VARCHAR(30)
+        - column:
+            name: kin_tipo_producto
+            type: VARCHAR(4)
+        - column:
+            name: kin_codigo_producto
+            type: VARCHAR(20)
+        - column:
+            name: kin_unidad_fisica
+            type: VARCHAR(4)
+        - column:
+            name: kin_cantidad
+            type: numeric
+        - column:
+            name: kin_valor
+            type: numeric
+        tableName: zed_kardex_inventario
+- changeSet:
+    id: 1480974858892-6
+    author: Fabian (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: num_codigo
+            type: VARCHAR(20)
+        - column:
+            name: num_valor
+            type: INT
+        tableName: zed_numeracion
+- changeSet:
+    id: 1480974858892-7
+    author: Fabian (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: ope_codigo
+            type: VARCHAR(5)
+        - column:
+            name: ope_dni
+            type: VARCHAR(20)
+        - column:
+            name: ope_razon_social
+            type: VARCHAR(200)
+        - column:
+            name: ope_nombre_comerial
+            type: VARCHAR(200)
+        - column:
+            name: ope_direccion
+            type: TEXT
+        - column:
+            name: ope_correo
+            type: VARCHAR(150)
+        - column:
+            name: ope_telefono
+            type: VARCHAR(50)
+        - column:
+            name: ope_tipo
+            type: VARCHAR(4)
+        - column:
+            name: ope_rep_dni
+            type: VARCHAR(20)
+        - column:
+            name: ope_rep_nombres
+            type: VARCHAR(150)
+        - column:
+            name: ope_rep_apellidos
+            type: VARCHAR(150)
+        - column:
+            name: ope_rep_nacimiento
+            type: date
+        - column:
+            name: ope_rep_correo
+            type: VARCHAR(150)
+        - column:
+            name: ope_rep_celular
+            type: VARCHAR(50)
+        - column:
+            name: ope_rep_direccion
+            type: TEXT
+        - column:
+            name: ope_rep_telefono
+            type: VARCHAR(50)
+        - column:
+            name: ope_estado
+            type: VARCHAR(4)
+        tableName: zed_operador
+- changeSet:
+    id: 1480974858892-8
+    author: Fabian (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: usr_dni
+            type: VARCHAR(20)
+        - column:
+            name: ope_codigo
+            type: VARCHAR(5)
+        - column:
+            name: usr_nombre
+            type: VARCHAR(150)
+        - column:
+            name: usr_apellido
+            type: VARCHAR(150)
+        - column:
+            name: usr_contrasena
+            type: VARCHAR(20)
+        - column:
+            name: usr_estado
+            type: VARCHAR(4)
+        tableName: zed_operador_usuario
+- changeSet:
+    id: 1480974858892-9
+    author: Fabian (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: par_id
+            type: VARCHAR(30)
+        - column:
+            name: par_nombre
+            type: VARCHAR(50)
+        - column:
+            name: par_valor
+            type: TEXT
+        tableName: zed_parametros
+- changeSet:
+    id: 1480974858892-10
+    author: Fabian (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: pro_codigo
+            type: VARCHAR(20)
+        - column:
+            name: ope_codigo
+            type: VARCHAR(5)
+        - column:
+            name: pro_nombre
+            type: VARCHAR(150)
+        - column:
+            name: pro_descripcion
+            type: TEXT
+        - column:
+            name: pro_modelo
+            type: VARCHAR(150)
+        - column:
+            name: pro_clase
+            type: VARCHAR(150)
+        - column:
+            name: pro_marca_comercial
+            type: VARCHAR(200)
+        - column:
+            name: pro_unidad_fisica
+            type: VARCHAR(4)
+        - column:
+            name: pro_partida_arancelaria
+            type: VARCHAR(10)
+        - column:
+            name: pro_procedencia
+            type: VARCHAR(4)
+        - column:
+            name: pro_destino
+            type: VARCHAR(4)
+        - column:
+            name: pro_tipo
+            type: VARCHAR(4)
+        - column:
+            name: pro_stock
+            type: numeric
+        - column:
+            name: pro_estado
+            type: VARCHAR(4)
+        - column:
+            name: pro_cod_complementario
+            type: VARCHAR(4)
+        - column:
+            name: pro_cod_suplementario
+            type: VARCHAR(4)
+        tableName: zed_producto
+- changeSet:
+    id: 1480974858892-11
+    author: Fabian (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: pro_codigo
+            type: VARCHAR(20)
+        - column:
+            constraints:
+              nullable: false
+            name: pin_codigo_insumo
+            type: VARCHAR(20)
+        - column:
+            name: pin_coeficiente
+            type: numeric
+        - column:
+            name: pin_coeficiente_desperdicio
+            type: numeric
+        - column:
+            name: pin_coeficiente_merma
+            type: numeric
+        - column:
+            name: pin_coeficiente_otro
+            type: numeric
+        - column:
+            name: pin_unidad
+            type: VARCHAR(4)
+        tableName: zed_producto_insumos
+- changeSet:
+    id: 1480974858892-12
+    author: Fabian (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: aco_codigo
+            type: VARCHAR(20)
+        - column:
+            name: sin_numero
+            type: VARCHAR(20)
+        - column:
+            name: aco_nro_documento
+            type: VARCHAR(20)
+        - column:
+            name: aco_tipo_documento
+            type: VARCHAR(150)
+        - column:
+            name: aco_entidad_emisora
+            type: VARCHAR(200)
+        - column:
+            name: aco_dir_archivo
+            type: TEXT
+        tableName: zed_solicitud_ingreso_acompanamiento_det
+- changeSet:
+    id: 1480974858892-13
+    author: Fabian (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: sin_numero
+            type: VARCHAR(20)
+        - column:
+            name: ope_codigo
+            type: VARCHAR(5)
+        - column:
+            name: sin_nro_tramite
+            type: VARCHAR(30)
+        - column:
+            name: sin_tipo_transaccion
+            type: VARCHAR(4)
+        - column:
+            name: sin_fecha
+            type: date
+        - column:
+            name: sin_fecha_hora
+            type: TIMESTAMP(6) WITHOUT TIME ZONE
+        - column:
+            name: sin_fib_fca
+            type: numeric
+        - column:
+            name: sin_flete
+            type: numeric
+        - column:
+            name: sin_seguro
+            type: numeric
+        - column:
+            name: sin_metodo_valor
+            type: VARCHAR(4)
+        - column:
+            name: sin_incoterm
+            type: VARCHAR(4)
+        - column:
+            name: sin_adiciones
+            type: numeric
+        - column:
+            name: sin_deduciones
+            type: numeric
+        - column:
+            name: sin_valor_aduana
+            type: numeric
+        - column:
+            name: sin_pais_procedencia
+            type: VARCHAR(4)
+        - column:
+            name: sin_unidades_comerciales
+            type: numeric
+        - column:
+            name: sin_ejecucion
+            type: BOOLEAN
+        - column:
+            name: sin_estado
+            type: VARCHAR(4)
+        - column:
+            name: sin_cantidad_items
+            type: INT
+        - column:
+            name: sin_pais_destino
+            type: VARCHAR(4)
+        - column:
+            name: sin_fecha_hora_salida
+            type: TIMESTAMP(6) WITHOUT TIME ZONE
+        - column:
+            name: sin_fecha_salida_transporte
+            type: date
+        - column:
+            name: sin_codigo_distrito_embarque
+            type: VARCHAR(4)
+        - column:
+            name: sin_nombre_terminal_embarque
+            type: VARCHAR(200)
+        - column:
+            name: sin_tipo_solicitud
+            type: VARCHAR(2)
+        - column:
+            name: sin_valor_incoterm
+            type: numeric
+        - column:
+            name: sin_peso_neto_total
+            type: numeric
+        tableName: zed_solicitud_ingreso_cab
+- changeSet:
+    id: 1480974858892-14
+    author: Fabian (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: cas_codigo
+            type: VARCHAR(20)
+        - column:
+            name: sin_numero
+            type: VARCHAR(20)
+        - column:
+            name: cas_descripcion_carga
+            type: VARCHAR(300)
+        - column:
+            name: cas_tipo_embalaje
+            type: VARCHAR(200)
+        - column:
+            name: cas_cantidad
+            type: INT
+        - column:
+            name: cas_peso_manifestado
+            type: numeric
+        - column:
+            name: cas_peso_recibido
+            type: numeric
+        tableName: zed_solicitud_ingreso_carga_suelta_det
+- changeSet:
+    id: 1480974858892-15
+    author: Fabian (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: con_codigo
+            type: VARCHAR(20)
+        - column:
+            name: sin_numero
+            type: VARCHAR(20)
+        - column:
+            name: con_descripcion_carga
+            type: VARCHAR(300)
+        - column:
+            name: con_nro_contenedor
+            type: VARCHAR(20)
+        - column:
+            name: con_tipo_contenedor
+            type: VARCHAR(200)
+        - column:
+            name: con_peso_manifestado
+            type: numeric
+        - column:
+            name: con_sello_uno
+            type: VARCHAR(20)
+        - column:
+            name: con_sello_dos
+            type: VARCHAR(20)
+        - column:
+            name: con_sello_tres
+            type: VARCHAR(20)
+        - column:
+            name: con_sello_cuatro
+            type: VARCHAR(20)
+        - column:
+            name: con_capacidad
+            type: VARCHAR(4)
+        tableName: zed_solicitud_ingreso_contenedor_det
+- changeSet:
+    id: 1480974858892-16
+    author: Fabian (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: his_codigo
+            type: BIGINT
+        - column:
+            name: sin_numero
+            type: VARCHAR(20)
+        - column:
+            name: his_fecha_hora
+            type: TIMESTAMP(6) WITHOUT TIME ZONE
+        - column:
+            name: his_fecha
+            type: date
+        - column:
+            name: his_estado_anterior
+            type: VARCHAR(4)
+        - column:
+            name: his_estado_nuevo
+            type: VARCHAR(4)
+        - column:
+            name: his_usuario
+            type: VARCHAR(20)
+        tableName: zed_solicitud_ingreso_historial
+- changeSet:
+    id: 1480974858892-17
+    author: Fabian (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: sio_fecha_hora
+            type: TIMESTAMP(6) WITHOUT TIME ZONE
+        - column:
+            constraints:
+              nullable: false
+            name: sio_usuario
+            type: VARCHAR(20)
+        - column:
+            name: sin_numero
+            type: VARCHAR(20)
+        - column:
+            name: sio_observacion
+            type: TEXT
+        - column:
+            name: sio_estado
+            type: VARCHAR(4)
+        tableName: zed_solicitud_ingreso_observacion_det
+- changeSet:
+    id: 1480974858892-18
+    author: Fabian (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: tra_codigo
+            type: VARCHAR(20)
+        - column:
+            name: sin_numero
+            type: VARCHAR(20)
+        - column:
+            name: tra_modo
+            type: VARCHAR(4)
+        - column:
+            name: tra_empresa
+            type: VARCHAR(150)
+        - column:
+            name: tra_nro_contrato
+            type: VARCHAR(20)
+        - column:
+            name: tra_nro_carga
+            type: VARCHAR(30)
+        - column:
+            name: tra_medio_placa
+            type: VARCHAR(150)
+        - column:
+            name: tra_nro_viaje
+            type: VARCHAR(10)
+        - column:
+            name: tra_puerto_aeropuerto_carga
+            type: VARCHAR(200)
+        - column:
+            name: tra_puerto_aeropuerto_descarga
+            type: VARCHAR(200)
+        - column:
+            name: tra_nombre_terminal
+            type: VARCHAR(200)
+        - column:
+            name: tra_nombre_consignatario
+            type: VARCHAR(200)
+        - column:
+            name: tra_nro_documento_consignatario
+            type: VARCHAR(20)
+        - column:
+            name: tra_tipo_documento_consignatari
+            type: VARCHAR(20)
+        - column:
+            name: tra_nombre_notificado
+            type: VARCHAR(200)
+        - column:
+            name: tra_flete
+            type: numeric
+        - column:
+            name: tra_peso_neto
+            type: numeric
+        - column:
+            name: tra_peso_bruto
+            type: numeric
+        tableName: zed_solicitud_ingreso_transporte_det
+- changeSet:
+    id: 1480974858892-19
+    author: Fabian (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: fac_nro
+            type: VARCHAR(20)
+        - column:
+            name: sin_numero
+            type: VARCHAR(20)
+        - column:
+            name: fac_fecha
+            type: date
+        - column:
+            name: fac_valor
+            type: numeric
+        - column:
+            name: fac_tipo_moneda
+            type: VARCHAR(20)
+        - column:
+            name: fac_tipo_cambio
+            type: numeric
+        - column:
+            name: fac_peso_neto
+            type: numeric
+        tableName: zes_solicitud_ingreso_factura_det
+- changeSet:
+    id: 1480974858892-20
+    author: Fabian (generated)
+    changes:
+    - addPrimaryKey:
+        columnNames: par_id
+        constraintName: parametros_pk
+        tableName: zed_parametros
+- changeSet:
+    id: 1480974858892-21
+    author: Fabian (generated)
+    changes:
+    - addPrimaryKey:
+        columnNames: cat_codigo
+        constraintName: pk_zed_catalogo
+        tableName: zed_catalogo
+- changeSet:
+    id: 1480974858892-22
+    author: Fabian (generated)
+    changes:
+    - addPrimaryKey:
+        columnNames: fac_nro, pro_codigo
+        constraintName: pk_zed_factura_producto_det
+        tableName: zed_factura_producto_det
+- changeSet:
+    id: 1480974858892-23
+    author: Fabian (generated)
+    changes:
+    - addPrimaryKey:
+        columnNames: ite_codigo
+        constraintName: pk_zed_item
+        tableName: zed_item
+- changeSet:
+    id: 1480974858892-24
+    author: Fabian (generated)
+    changes:
+    - addPrimaryKey:
+        columnNames: kga_codigo
+        constraintName: pk_zed_kardex_garantias
+        tableName: zed_kardex_garantias
+- changeSet:
+    id: 1480974858892-25
+    author: Fabian (generated)
+    changes:
+    - addPrimaryKey:
+        columnNames: kin_codigo
+        constraintName: pk_zed_kardex_inventario
+        tableName: zed_kardex_inventario
+- changeSet:
+    id: 1480974858892-26
+    author: Fabian (generated)
+    changes:
+    - addPrimaryKey:
+        columnNames: num_codigo
+        constraintName: pk_zed_numeracion
+        tableName: zed_numeracion
+- changeSet:
+    id: 1480974858892-27
+    author: Fabian (generated)
+    changes:
+    - addPrimaryKey:
+        columnNames: ope_codigo
+        constraintName: pk_zed_operador
+        tableName: zed_operador
+- changeSet:
+    id: 1480974858892-28
+    author: Fabian (generated)
+    changes:
+    - addPrimaryKey:
+        columnNames: usr_dni
+        constraintName: pk_zed_operador_usuario
+        tableName: zed_operador_usuario
+- changeSet:
+    id: 1480974858892-29
+    author: Fabian (generated)
+    changes:
+    - addPrimaryKey:
+        columnNames: pro_codigo
+        constraintName: pk_zed_producto
+        tableName: zed_producto
+- changeSet:
+    id: 1480974858892-30
+    author: Fabian (generated)
+    changes:
+    - addPrimaryKey:
+        columnNames: pro_codigo, pin_codigo_insumo
+        constraintName: pk_zed_producto_insumos
+        tableName: zed_producto_insumos
+- changeSet:
+    id: 1480974858892-31
+    author: Fabian (generated)
+    changes:
+    - addPrimaryKey:
+        columnNames: aco_codigo
+        constraintName: pk_zed_solicitud_ingreso_acomp
+        tableName: zed_solicitud_ingreso_acompanamiento_det
+- changeSet:
+    id: 1480974858892-32
+    author: Fabian (generated)
+    changes:
+    - addPrimaryKey:
+        columnNames: sin_numero
+        constraintName: pk_zed_solicitud_ingreso_cab
+        tableName: zed_solicitud_ingreso_cab
+- changeSet:
+    id: 1480974858892-33
+    author: Fabian (generated)
+    changes:
+    - addPrimaryKey:
+        columnNames: cas_codigo
+        constraintName: pk_zed_solicitud_ingreso_carga
+        tableName: zed_solicitud_ingreso_carga_suelta_det
+- changeSet:
+    id: 1480974858892-34
+    author: Fabian (generated)
+    changes:
+    - addPrimaryKey:
+        columnNames: his_codigo
+        constraintName: pk_zed_solicitud_ingreso_histo
+        tableName: zed_solicitud_ingreso_historial
+- changeSet:
+    id: 1480974858892-35
+    author: Fabian (generated)
+    changes:
+    - addPrimaryKey:
+        columnNames: sio_fecha_hora, sio_usuario
+        constraintName: pk_zed_solicitud_ingreso_obser
+        tableName: zed_solicitud_ingreso_observacion_det
+- changeSet:
+    id: 1480974858892-36
+    author: Fabian (generated)
+    changes:
+    - addPrimaryKey:
+        columnNames: tra_codigo
+        constraintName: pk_zed_solicitud_ingreso_trans
+        tableName: zed_solicitud_ingreso_transporte_det
+- changeSet:
+    id: 1480974858892-37
+    author: Fabian (generated)
+    changes:
+    - addPrimaryKey:
+        columnNames: con_codigo
+        constraintName: pk_zed_solicitud_ingresoi_cont
+        tableName: zed_solicitud_ingreso_contenedor_det
+- changeSet:
+    id: 1480974858892-38
+    author: Fabian (generated)
+    changes:
+    - addPrimaryKey:
+        columnNames: fac_nro
+        constraintName: pk_zes_solicitud_ingreso_factu
+        tableName: zes_solicitud_ingreso_factura_det
+- changeSet:
+    id: 1480974858892-39
+    author: Fabian (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: pro_codigo
+        baseTableName: zed_factura_producto_det
+        constraintName: fk_zed_fact_reference_zed_prod
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: RESTRICT
+        onUpdate: RESTRICT
+        referencedColumnNames: pro_codigo
+        referencedTableName: zed_producto
+- changeSet:
+    id: 1480974858892-40
+    author: Fabian (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: fac_nro
+        baseTableName: zed_factura_producto_det
+        constraintName: fk_zed_fact_reference_zes_soli
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: RESTRICT
+        onUpdate: RESTRICT
+        referencedColumnNames: fac_nro
+        referencedTableName: zes_solicitud_ingreso_factura_det
+- changeSet:
+    id: 1480974858892-41
+    author: Fabian (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: cat_codigo
+        baseTableName: zed_item
+        constraintName: fk_zed_item_reference_zed_cata
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: RESTRICT
+        onUpdate: RESTRICT
+        referencedColumnNames: cat_codigo
+        referencedTableName: zed_catalogo
+- changeSet:
+    id: 1480974858892-42
+    author: Fabian (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: kin_codigo
+        baseTableName: zed_kardex_garantias
+        constraintName: fk_zed_kard_reference_zed_kard
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: RESTRICT
+        onUpdate: RESTRICT
+        referencedColumnNames: kin_codigo
+        referencedTableName: zed_kardex_inventario
+- changeSet:
+    id: 1480974858892-43
+    author: Fabian (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: ope_codigo
+        baseTableName: zed_operador_usuario
+        constraintName: fk_zed_oper_reference_zed_oper
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: RESTRICT
+        onUpdate: RESTRICT
+        referencedColumnNames: ope_codigo
+        referencedTableName: zed_operador
+- changeSet:
+    id: 1480974858892-44
+    author: Fabian (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: ope_codigo
+        baseTableName: zed_producto
+        constraintName: fk_zed_prod_reference_zed_oper
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: RESTRICT
+        onUpdate: RESTRICT
+        referencedColumnNames: ope_codigo
+        referencedTableName: zed_operador
+- changeSet:
+    id: 1480974858892-45
+    author: Fabian (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: pro_codigo
+        baseTableName: zed_producto_insumos
+        constraintName: fk_zed_prod_reference_zed_prod
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: RESTRICT
+        onUpdate: RESTRICT
+        referencedColumnNames: pro_codigo
+        referencedTableName: zed_producto
+- changeSet:
+    id: 1480974858892-46
+    author: Fabian (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: ope_codigo
+        baseTableName: zed_solicitud_ingreso_cab
+        constraintName: fk_zed_soli_reference_zed_oper
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: RESTRICT
+        onUpdate: RESTRICT
+        referencedColumnNames: ope_codigo
+        referencedTableName: zed_operador
+- changeSet:
+    id: 1480974858892-47
+    author: Fabian (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: sin_numero
+        baseTableName: zed_solicitud_ingreso_contenedor_det
+        constraintName: fk_zed_soli_reference_zed_sol1
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: RESTRICT
+        onUpdate: RESTRICT
+        referencedColumnNames: sin_numero
+        referencedTableName: zed_solicitud_ingreso_cab
+- changeSet:
+    id: 1480974858892-48
+    author: Fabian (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: sin_numero
+        baseTableName: zed_solicitud_ingreso_acompanamiento_det
+        constraintName: fk_zed_soli_reference_zed_sol2
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: RESTRICT
+        onUpdate: RESTRICT
+        referencedColumnNames: sin_numero
+        referencedTableName: zed_solicitud_ingreso_cab
+- changeSet:
+    id: 1480974858892-49
+    author: Fabian (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: sin_numero
+        baseTableName: zed_solicitud_ingreso_carga_suelta_det
+        constraintName: fk_zed_soli_reference_zed_sol3
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: RESTRICT
+        onUpdate: RESTRICT
+        referencedColumnNames: sin_numero
+        referencedTableName: zed_solicitud_ingreso_cab
+- changeSet:
+    id: 1480974858892-50
+    author: Fabian (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: sin_numero
+        baseTableName: zed_solicitud_ingreso_historial
+        constraintName: fk_zed_soli_reference_zed_sol4
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: RESTRICT
+        onUpdate: RESTRICT
+        referencedColumnNames: sin_numero
+        referencedTableName: zed_solicitud_ingreso_cab
+- changeSet:
+    id: 1480974858892-51
+    author: Fabian (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: sin_numero
+        baseTableName: zed_solicitud_ingreso_transporte_det
+        constraintName: fk_zed_soli_reference_zed_sol5
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: RESTRICT
+        onUpdate: RESTRICT
+        referencedColumnNames: sin_numero
+        referencedTableName: zed_solicitud_ingreso_cab
+- changeSet:
+    id: 1480974858892-52
+    author: Fabian (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: sin_numero
+        baseTableName: zed_solicitud_ingreso_observacion_det
+        constraintName: fk_zed_soli_reference_zed_soli
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: RESTRICT
+        onUpdate: RESTRICT
+        referencedColumnNames: sin_numero
+        referencedTableName: zed_solicitud_ingreso_cab
+- changeSet:
+    id: 1480974858892-53
+    author: Fabian (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: sin_numero
+        baseTableName: zes_solicitud_ingreso_factura_det
+        constraintName: fk_zes_soli_reference_zed_soli
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: RESTRICT
+        onUpdate: RESTRICT
+        referencedColumnNames: sin_numero
+        referencedTableName: zed_solicitud_ingreso_cab
+

@@ -1,0 +1,978 @@
+databaseChangeLog:
+- changeSet:
+    id: 1480975417630-1
+    author: Fabian (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: ain_codigo
+            type: VARCHAR(20)
+        - column:
+            name: usr_dni_destino
+            type: VARCHAR(20)
+        - column:
+            name: ain_documento1
+            type: TEXT
+        - column:
+            name: ain_documento2
+            type: TEXT
+        - column:
+            name: ain_fecha_creacion
+            type: TIMESTAMP(6) WITHOUT TIME ZONE
+        tableName: zed_ajuste_inventario_cab
+- changeSet:
+    id: 1480975417630-2
+    author: Fabian (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              primaryKey: true
+              primaryKeyName: pk_zed_ajuste_inventario_det
+            name: dai_codigo
+            type: SERIAL
+        - column:
+            name: pro_codigo
+            type: VARCHAR(20)
+        - column:
+            name: ain_codigo
+            type: VARCHAR(20)
+        - column:
+            name: dai_cantidad
+            type: numeric
+        - column:
+            name: dai_cantidad_anterior
+            type: numeric
+        - column:
+            name: dai_tipo_transaccion
+            type: VARCHAR(4)
+        tableName: zed_ajuste_inventario_det
+- changeSet:
+    id: 1480975417630-3
+    author: Fabian (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: ins_codigo
+            type: VARCHAR(20)
+        - column:
+            name: ins_referencia_documento
+            type: VARCHAR(256)
+        - column:
+            name: ins_referencia_documento_codigo
+            type: VARCHAR(30)
+        - column:
+            name: ins_fecha_creacion
+            type: TIMESTAMP(6) WITHOUT TIME ZONE
+        - column:
+            name: ins_fecha_notificacion
+            type: TIMESTAMP(6) WITHOUT TIME ZONE
+        - column:
+            name: ins_tipo_inspeccion
+            type: VARCHAR(4)
+        - column:
+            name: ins_observacion
+            type: TEXT
+        - column:
+            name: ins_estado
+            type: VARCHAR(4)
+        tableName: zed_inspeccion_cab
+- changeSet:
+    id: 1480975417630-4
+    author: Fabian (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              primaryKey: true
+              primaryKeyName: pk_zed_inspeccion_det
+            name: insd_codigo
+            type: SERIAL
+        - column:
+            name: ins_codigo
+            type: VARCHAR(20)
+        - column:
+            name: insd_novedad
+            type: VARCHAR(256)
+        - column:
+            name: insd_novedad2
+            type: VARCHAR(256)
+        - column:
+            name: insd_documento1
+            type: TEXT
+        - column:
+            name: inds_documento2
+            type: TEXT
+        tableName: zed_inspeccion_det
+- changeSet:
+    id: 1480975417630-5
+    author: Fabian (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: iod_codigo
+            type: VARCHAR(20)
+        - column:
+            name: pro_codigo
+            type: VARCHAR(20)
+        - column:
+            name: dod_codigo
+            type: INT
+        - column:
+            name: iod_cantidad_usada
+            type: numeric
+        - column:
+            name: iod_cantidad_danada
+            type: numeric
+        - column:
+            name: iod_merma
+            type: numeric
+        - column:
+            name: iod_sobrante
+            type: numeric
+        tableName: zed_insumo_orden_despacho
+- changeSet:
+    id: 1480975417630-6
+    author: Fabian (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: iop_codigo
+            type: VARCHAR(20)
+        - column:
+            name: pro_codigo
+            type: VARCHAR(20)
+        - column:
+            name: pop_codigo
+            type: VARCHAR(20)
+        - column:
+            name: iop_cantidad_total
+            type: numeric
+        - column:
+            name: iop_cantidad_ingresada
+            type: numeric
+        - column:
+            name: iop_cantidad_danada
+            type: numeric
+        - column:
+            name: iop_merma
+            type: numeric
+        - column:
+            name: iop_sobrante
+            type: numeric
+        tableName: zed_insumo_orden_produccion_det
+- changeSet:
+    id: 1480975417630-7
+    author: Fabian (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              primaryKey: true
+              primaryKeyName: pk_zed_kardex
+            name: kar_codigo
+            type: SERIAL
+        - column:
+            name: pro_codigo
+            type: VARCHAR(20)
+        - column:
+            name: kar_cantidad
+            type: numeric
+        - column:
+            name: kar_cantidad_anterior
+            type: numeric
+        - column:
+            name: kar_fecha_transaccion
+            type: TIMESTAMP(6) WITHOUT TIME ZONE
+        - column:
+            name: kar_tipo_movimiento
+            type: VARCHAR(4)
+        - column:
+            name: kar_observacion
+            type: VARCHAR(256)
+        - column:
+            name: kar_referencia
+            type: VARCHAR(128)
+        - column:
+            name: kar_codigo_referencia
+            type: VARCHAR(20)
+        - column:
+            name: kar_usuario
+            type: VARCHAR(20)
+        - column:
+            name: kar_operador
+            type: VARCHAR(20)
+        - column:
+            name: kar_estado_mercaderia
+            type: VARCHAR(20)
+        tableName: zed_kardex
+- changeSet:
+    id: 1480975417630-8
+    author: Fabian (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              primaryKey: true
+              primaryKeyName: pk_zed_notificacion
+            name: not_codig
+            type: SERIAL
+        - column:
+            name: usr_dni
+            type: VARCHAR(20)
+        - column:
+            name: not_estado
+            type: BOOLEAN
+        - column:
+            name: not_mensaje
+            type: TEXT
+        - column:
+            name: not_fecha
+            type: TIMESTAMP(6) WITHOUT TIME ZONE
+        - column:
+            name: not_referencia_documento
+            type: VARCHAR(60)
+        - column:
+            name: not_referencia_documento_codigo
+            type: VARCHAR(30)
+        tableName: zed_notificacion
+- changeSet:
+    id: 1480975417630-9
+    author: Fabian (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: ode_codigo
+            type: VARCHAR(20)
+        - column:
+            name: opr_codigo
+            type: VARCHAR(20)
+        - column:
+            name: ode_fecha_creacion
+            type: TIMESTAMP(6) WITHOUT TIME ZONE
+        - column:
+            name: ode_estado
+            type: VARCHAR(4)
+        tableName: zed_orden_despacho_cab
+- changeSet:
+    id: 1480975417630-10
+    author: Fabian (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              primaryKey: true
+              primaryKeyName: pk_zed_orden_despacho_det
+            name: dod_codigo
+            type: SERIAL
+        - column:
+            name: pro_codigo
+            type: VARCHAR(20)
+        - column:
+            name: ode_codigo
+            type: VARCHAR(20)
+        - column:
+            name: dod_cantidad_producida
+            type: numeric
+        - column:
+            name: dod_cantidad_daniada
+            type: numeric
+        - column:
+            name: dod_cantidad_total
+            type: numeric
+        tableName: zed_orden_despacho_det
+- changeSet:
+    id: 1480975417630-11
+    author: Fabian (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: opr_codigo
+            type: VARCHAR(20)
+        - column:
+            name: opr_fecha_creacion
+            type: date
+        - column:
+            name: opr_fecha_fin
+            type: date
+        - column:
+            name: opr_estado
+            type: VARCHAR(4)
+        - column:
+            name: opr_observacion
+            type: VARCHAR(256)
+        tableName: zed_orden_produccion
+- changeSet:
+    id: 1480975417630-12
+    author: Fabian (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: otr_codigo
+            type: VARCHAR(20)
+        - column:
+            name: opr_codigo
+            type: VARCHAR(20)
+        - column:
+            name: otr_fecha_creacion
+            type: date
+        - column:
+            name: otr_estado
+            type: VARCHAR(4)
+        tableName: zed_orden_trabajo_cab
+- changeSet:
+    id: 1480975417630-13
+    author: Fabian (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              primaryKey: true
+              primaryKeyName: pk_zed_orden_trabajo_det
+            name: dot_codigo
+            type: SERIAL
+        - column:
+            name: pro_codigo
+            type: VARCHAR(20)
+        - column:
+            name: otr_codigo
+            type: VARCHAR(20)
+        - column:
+            name: dot_cantidad
+            type: numeric
+        tableName: zed_orden_trabajo_det
+- changeSet:
+    id: 1480975417630-14
+    author: Fabian (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: per_codigo
+            type: VARCHAR(20)
+        - column:
+            name: per_fecha_inicio
+            type: date
+        - column:
+            name: per_fecha_fin
+            type: date
+        - column:
+            name: per_nombre
+            type: VARCHAR(60)
+        - column:
+            name: ope_codigo
+            type: VARCHAR(20)
+        - column:
+            name: per_estado
+            type: BOOLEAN
+        tableName: zed_periodo
+- changeSet:
+    id: 1480975417630-15
+    author: Fabian (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: pop_codigo
+            type: VARCHAR(20)
+        - column:
+            name: pro_codigo
+            type: VARCHAR(20)
+        - column:
+            name: opr_codigo
+            type: VARCHAR(20)
+        - column:
+            name: pop_cantidad_total
+            type: numeric
+        - column:
+            name: pop_cantidad_producida
+            type: numeric
+        - column:
+            name: pop_cantidad_daniada
+            type: numeric
+        tableName: zed_producto_orden_produccion_det
+- changeSet:
+    id: 1480975417630-16
+    author: Fabian (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: sds_codigo
+            type: VARCHAR(20)
+        - column:
+            name: sin_numero
+            type: VARCHAR(20)
+        - column:
+            name: sds_tipo_solicitud
+            type: VARCHAR(4)
+        - column:
+            name: sds_fecha_creacion
+            type: TIMESTAMP(6) WITHOUT TIME ZONE
+        - column:
+            name: sds_estado
+            type: VARCHAR(4)
+        - column:
+            name: sds_operador_numero
+            type: VARCHAR(4)
+        tableName: zed_solicitud_descarga_salida_cab
+- changeSet:
+    id: 1480975417630-17
+    author: Fabian (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              primaryKey: true
+              primaryKeyName: pk_zed_solicitud_descarga_sali_b
+            name: dds_codigo
+            type: SERIAL
+        - column:
+            name: sds_codigo
+            type: VARCHAR(20)
+        - column:
+            name: fac_nro
+            type: VARCHAR(20)
+        - column:
+            name: pro_codigo
+            type: VARCHAR(20)
+        - column:
+            name: cantidad_ya_descargada
+            type: numeric
+        - column:
+            name: cantidad_a_descargar
+            type: numeric
+        - column:
+            name: cantidad_descargada
+            type: numeric
+        tableName: zed_solicitud_descarga_salida_det
+- changeSet:
+    id: 1480975417630-18
+    author: Fabian (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              primaryKey: true
+              primaryKeyName: pk_zed_solicitud_transferencia
+            name: dst_codigo
+            type: SERIAL
+        - column:
+            name: pro_codigo
+            type: VARCHAR(20)
+        - column:
+            name: str_codigo
+            type: VARCHAR(20)
+        - column:
+            name: dst_cantidad
+            type: numeric
+        - column:
+            name: dst_gratuita
+            type: BOOLEAN
+        - column:
+            name: dst_estado_mercaderia
+            type: VARCHAR(4)
+        tableName: zed_solicitud_transferencia_det
+- changeSet:
+    id: 1480975417630-19
+    author: Fabian (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: str_codigo
+            type: VARCHAR(20)
+        - column:
+            name: usr_dni_origen
+            type: VARCHAR(20)
+        - column:
+            name: usr_dni_destino
+            type: VARCHAR(20)
+        - column:
+            name: str_fecha_creacion
+            type: TIMESTAMP(6) WITHOUT TIME ZONE
+        - column:
+            name: str_estado
+            type: VARCHAR(4)
+        tableName: zed_solicitud_trasnferencia_cab
+- changeSet:
+    id: 1480975417630-20
+    author: Fabian (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: sin_tipo
+            type: varchar(10 BYTE)
+        tableName: zed_solicitud_ingreso_cab
+- changeSet:
+    id: 1480975417630-21
+    author: Fabian (generated)
+    changes:
+    - addPrimaryKey:
+        columnNames: iod_codigo
+        constraintName: pk_insumo_orden_despacho
+        tableName: zed_insumo_orden_despacho
+- changeSet:
+    id: 1480975417630-22
+    author: Fabian (generated)
+    changes:
+    - addPrimaryKey:
+        columnNames: ain_codigo
+        constraintName: pk_zed_ajuste_inventario_cab
+        tableName: zed_ajuste_inventario_cab
+- changeSet:
+    id: 1480975417630-23
+    author: Fabian (generated)
+    changes:
+    - addPrimaryKey:
+        columnNames: ins_codigo
+        constraintName: pk_zed_inspeccion_cab
+        tableName: zed_inspeccion_cab
+- changeSet:
+    id: 1480975417630-24
+    author: Fabian (generated)
+    changes:
+    - addPrimaryKey:
+        columnNames: iop_codigo
+        constraintName: pk_zed_insumo_orden_produccion_det
+        tableName: zed_insumo_orden_produccion_det
+- changeSet:
+    id: 1480975417630-25
+    author: Fabian (generated)
+    changes:
+    - addPrimaryKey:
+        columnNames: ode_codigo
+        constraintName: pk_zed_orden_despacho_cab
+        tableName: zed_orden_despacho_cab
+- changeSet:
+    id: 1480975417630-26
+    author: Fabian (generated)
+    changes:
+    - addPrimaryKey:
+        columnNames: opr_codigo
+        constraintName: pk_zed_orden_produccion
+        tableName: zed_orden_produccion
+- changeSet:
+    id: 1480975417630-27
+    author: Fabian (generated)
+    changes:
+    - addPrimaryKey:
+        columnNames: otr_codigo
+        constraintName: pk_zed_orden_trabajo_cab
+        tableName: zed_orden_trabajo_cab
+- changeSet:
+    id: 1480975417630-28
+    author: Fabian (generated)
+    changes:
+    - addPrimaryKey:
+        columnNames: per_codigo
+        constraintName: pk_zed_periodo
+        tableName: zed_periodo
+- changeSet:
+    id: 1480975417630-29
+    author: Fabian (generated)
+    changes:
+    - addPrimaryKey:
+        columnNames: pop_codigo
+        constraintName: pk_zed_producto_orden_producci
+        tableName: zed_producto_orden_produccion_det
+- changeSet:
+    id: 1480975417630-30
+    author: Fabian (generated)
+    changes:
+    - addPrimaryKey:
+        columnNames: sds_codigo
+        constraintName: pk_zed_solicitud_descarga_sali_a
+        tableName: zed_solicitud_descarga_salida_cab
+- changeSet:
+    id: 1480975417630-31
+    author: Fabian (generated)
+    changes:
+    - addPrimaryKey:
+        columnNames: str_codigo
+        constraintName: pk_zed_solicitud_trasnferencia
+        tableName: zed_solicitud_trasnferencia_cab
+- changeSet:
+    id: 1480975417630-32
+    author: Fabian (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: dod_codigo
+        baseTableName: zed_insumo_orden_despacho
+        constraintName: fk_insumo_o_reference_zed_orde
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: RESTRICT
+        onUpdate: RESTRICT
+        referencedColumnNames: dod_codigo
+        referencedTableName: zed_orden_despacho_det
+- changeSet:
+    id: 1480975417630-33
+    author: Fabian (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: pro_codigo
+        baseTableName: zed_insumo_orden_despacho
+        constraintName: fk_insumo_o_reference_zed_prod_a
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: RESTRICT
+        onUpdate: RESTRICT
+        referencedColumnNames: pro_codigo
+        referencedTableName: zed_producto
+- changeSet:
+    id: 1480975417630-34
+    author: Fabian (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: ain_codigo
+        baseTableName: zed_ajuste_inventario_det
+        constraintName: fk_zed_ajus_reference_zed_ajus
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: RESTRICT
+        onUpdate: RESTRICT
+        referencedColumnNames: ain_codigo
+        referencedTableName: zed_ajuste_inventario_cab
+- changeSet:
+    id: 1480975417630-35
+    author: Fabian (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: usr_dni_destino
+        baseTableName: zed_ajuste_inventario_cab
+        constraintName: fk_zed_ajus_reference_zed_oper
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: RESTRICT
+        onUpdate: RESTRICT
+        referencedColumnNames: usr_dni
+        referencedTableName: zed_operador_usuario
+- changeSet:
+    id: 1480975417630-36
+    author: Fabian (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: pro_codigo
+        baseTableName: zed_ajuste_inventario_det
+        constraintName: fk_zed_ajus_reference_zed_prod
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: RESTRICT
+        onUpdate: RESTRICT
+        referencedColumnNames: pro_codigo
+        referencedTableName: zed_producto
+- changeSet:
+    id: 1480975417630-37
+    author: Fabian (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: ins_codigo
+        baseTableName: zed_inspeccion_det
+        constraintName: fk_zed_insp_reference_zed_insp
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: RESTRICT
+        onUpdate: RESTRICT
+        referencedColumnNames: ins_codigo
+        referencedTableName: zed_inspeccion_cab
+- changeSet:
+    id: 1480975417630-38
+    author: Fabian (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: pro_codigo
+        baseTableName: zed_insumo_orden_produccion_det
+        constraintName: fk_zed_insu_reference_zed_pro1
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: RESTRICT
+        onUpdate: RESTRICT
+        referencedColumnNames: pro_codigo
+        referencedTableName: zed_producto
+- changeSet:
+    id: 1480975417630-39
+    author: Fabian (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: pop_codigo
+        baseTableName: zed_insumo_orden_produccion_det
+        constraintName: fk_zed_insu_reference_zed_prod
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: RESTRICT
+        onUpdate: RESTRICT
+        referencedColumnNames: pop_codigo
+        referencedTableName: zed_producto_orden_produccion_det
+- changeSet:
+    id: 1480975417630-40
+    author: Fabian (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: usr_dni
+        baseTableName: zed_notificacion
+        constraintName: fk_zed_noti_reference_zed_oper
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: RESTRICT
+        onUpdate: RESTRICT
+        referencedColumnNames: usr_dni
+        referencedTableName: zed_operador_usuario
+- changeSet:
+    id: 1480975417630-41
+    author: Fabian (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: opr_codigo
+        baseTableName: zed_orden_despacho_cab
+        constraintName: fk_zed_orde_reference_zed_ord1
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: RESTRICT
+        onUpdate: RESTRICT
+        referencedColumnNames: opr_codigo
+        referencedTableName: zed_orden_produccion
+- changeSet:
+    id: 1480975417630-42
+    author: Fabian (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: ode_codigo
+        baseTableName: zed_orden_despacho_det
+        constraintName: fk_zed_orde_reference_zed_ord2
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: RESTRICT
+        onUpdate: RESTRICT
+        referencedColumnNames: ode_codigo
+        referencedTableName: zed_orden_despacho_cab
+- changeSet:
+    id: 1480975417630-43
+    author: Fabian (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: opr_codigo
+        baseTableName: zed_orden_trabajo_cab
+        constraintName: fk_zed_orde_reference_zed_ord3
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: RESTRICT
+        onUpdate: RESTRICT
+        referencedColumnNames: opr_codigo
+        referencedTableName: zed_orden_produccion
+- changeSet:
+    id: 1480975417630-44
+    author: Fabian (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: otr_codigo
+        baseTableName: zed_orden_trabajo_det
+        constraintName: fk_zed_orde_reference_zed_orde
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: RESTRICT
+        onUpdate: RESTRICT
+        referencedColumnNames: otr_codigo
+        referencedTableName: zed_orden_trabajo_cab
+- changeSet:
+    id: 1480975417630-45
+    author: Fabian (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: pro_codigo
+        baseTableName: zed_orden_trabajo_det
+        constraintName: fk_zed_orde_reference_zed_pro1
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: RESTRICT
+        onUpdate: RESTRICT
+        referencedColumnNames: pro_codigo
+        referencedTableName: zed_producto
+- changeSet:
+    id: 1480975417630-46
+    author: Fabian (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: pro_codigo
+        baseTableName: zed_orden_despacho_det
+        constraintName: fk_zed_orde_reference_zed_prod
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: RESTRICT
+        onUpdate: RESTRICT
+        referencedColumnNames: pro_codigo
+        referencedTableName: zed_producto
+- changeSet:
+    id: 1480975417630-47
+    author: Fabian (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: ope_codigo
+        baseTableName: zed_periodo
+        constraintName: fk_zed_peri_reference_zed_oper
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: RESTRICT
+        onUpdate: RESTRICT
+        referencedColumnNames: ope_codigo
+        referencedTableName: zed_operador
+- changeSet:
+    id: 1480975417630-48
+    author: Fabian (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: opr_codigo
+        baseTableName: zed_producto_orden_produccion_det
+        constraintName: fk_zed_prod_reference_zed_orde
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: RESTRICT
+        onUpdate: RESTRICT
+        referencedColumnNames: opr_codigo
+        referencedTableName: zed_orden_produccion
+- changeSet:
+    id: 1480975417630-49
+    author: Fabian (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: pro_codigo
+        baseTableName: zed_producto_orden_produccion_det
+        constraintName: fk_zed_prod_reference_zed_pro1
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: RESTRICT
+        onUpdate: RESTRICT
+        referencedColumnNames: pro_codigo
+        referencedTableName: zed_producto
+- changeSet:
+    id: 1480975417630-50
+    author: Fabian (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: fac_nro,pro_codigo
+        baseTableName: zed_solicitud_descarga_salida_det
+        constraintName: fk_zed_soli_reference_zed_fact
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: RESTRICT
+        onUpdate: RESTRICT
+        referencedColumnNames: fac_nro,pro_codigo
+        referencedTableName: zed_factura_producto_det
+- changeSet:
+    id: 1480975417630-51
+    author: Fabian (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: usr_dni_destino
+        baseTableName: zed_solicitud_trasnferencia_cab
+        constraintName: fk_zed_soli_reference_zed_ope1
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: RESTRICT
+        onUpdate: RESTRICT
+        referencedColumnNames: usr_dni
+        referencedTableName: zed_operador_usuario
+- changeSet:
+    id: 1480975417630-52
+    author: Fabian (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: usr_dni_origen
+        baseTableName: zed_solicitud_trasnferencia_cab
+        constraintName: fk_zed_soli_reference_zed_oper2
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: RESTRICT
+        onUpdate: RESTRICT
+        referencedColumnNames: usr_dni
+        referencedTableName: zed_operador_usuario
+- changeSet:
+    id: 1480975417630-53
+    author: Fabian (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: pro_codigo
+        baseTableName: zed_solicitud_transferencia_det
+        constraintName: fk_zed_soli_reference_zed_prod
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: RESTRICT
+        onUpdate: RESTRICT
+        referencedColumnNames: pro_codigo
+        referencedTableName: zed_producto
+- changeSet:
+    id: 1480975417630-54
+    author: Fabian (generated)
+    changes:
+    - dropForeignKeyConstraint:
+        baseTableName: zed_kardex_garantias
+        constraintName: fk_zed_kard_reference_zed_kard
+- changeSet:
+    id: 1480975417630-55
+    author: Fabian (generated)
+    changes:
+    - dropTable:
+        tableName: zed_kardex_garantias
+- changeSet:
+    id: 1480975417630-56
+    author: Fabian (generated)
+    changes:
+    - dropTable:
+        tableName: zed_kardex_inventario
+- changeSet:
+    id: 1480975417630-57
+    author: Fabian (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: sin_numero
+        baseTableName: zed_solicitud_descarga_salida_cab
+        constraintName: fk_zed_soli_reference_zed_sol1
+        referencedColumnNames: sin_numero
+        referencedTableName: zed_solicitud_ingreso_cab
+

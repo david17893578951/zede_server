@@ -1,0 +1,58 @@
+databaseChangeLog:
+- changeSet:
+    id: Eliminar tabla detalle
+    author: David
+    changes:
+    - dropTable:
+        cascadeConstraints: false
+        tableName: pru_detalle
+- changeSet:
+    id: Creacion de tabla detalle
+    author: David
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: pru_deta_codigo
+            type: SERIAL
+            autoIncrement: true
+        - column:
+            name: pru_fac_codigo
+            type: integer
+        - column:
+            name: pru_pro_codigo
+            type: integer
+        - column:
+            name: pru_deta_tota
+            type: DECIMAL(15,2)
+        tableName: pru_detalle
+- changeSet:
+    id: Clave priamria de Factura Detalle
+    author: david (generated)
+    changes:
+    - addPrimaryKey:
+        columnNames: pru_deta_codigo
+        constraintName: pk_pru_deta_codigo
+        tableName: pru_detalle
+- changeSet:
+    id: Clave Foreing Key Factura Detalle
+    author: david (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: pru_fac_codigo
+        baseTableName: pru_detalle
+        constraintName: fk_pru_detalle_reference_pru_factura
+        referencedColumnNames: pru_fac_codigo
+        referencedTableName: pru_factura
+- changeSet:
+    id: Clave Foreing Key Producto Detalle
+    author: david (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: pru_pro_codigo
+        baseTableName: pru_detalle
+        constraintName: fk_pru_detalle_reference_pru_producto
+        referencedColumnNames: pru_pro_codigo
+        referencedTableName: pru_producto

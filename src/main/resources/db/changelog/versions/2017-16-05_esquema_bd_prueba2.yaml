@@ -1,0 +1,58 @@
+databaseChangeLog:
+- changeSet:
+    id: Creacion de tabla factura
+    author: FabianBG
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: pru_fac_codigo
+            type: SERIAL
+            autoIncrement: true
+        - column:
+            name: pru_pro_codigo
+            type: SERIAL
+        - column:
+            name: pru_fac_fecha
+            type: DATE
+        - column:
+            name: pru_fac_tota
+            type: DECIMAL(15,2)
+        tableName: pru_factura
+- changeSet:
+    id: Creacion de tabla producto
+    author: FabianBG
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: pru_pro_codigo
+            type: SERIAL
+            autoIncrement: true
+        - column:
+            name: pru_pro_nombre
+            type: VARCHAR(128)
+        - column:
+            name: pru_pro_costo
+            type: DECIMAL(15,2)
+        tableName: pru_producto
+- changeSet:
+    id: Clave priamria de factura
+    author: FabianBG
+    changes:
+    - addPrimaryKey:
+        columnNames: pru_fac_codigo
+        constraintName: pk_pru_fac_codigo
+        tableName: pru_factura
+- changeSet:
+    id: Clave priamria de producto
+    author: david
+    changes:
+    - addPrimaryKey:
+        columnNames: pru_pro_codigo
+        constraintName: pk_pru_pro_codigo
+        tableName: pru_producto
